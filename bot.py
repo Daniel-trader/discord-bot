@@ -2,9 +2,10 @@ import discord
 import openai
 from discord.ext import commands
 
-openai.api_key = "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"
-DISCORD_BOT_TOKEN = "MTM0NzY4NDMxMzkyMzE5MDg0NA.GDNXm4.BfwPY4ze7q7MTlfQJarZoZ209ULj0Z4VvBW3-U"
+import os
 
+openai.api_key = os.getenv("OPENAI_API_KEY")
+DISCORD_BOT_TOKEN = os.getenv("DISCORD_BOT_TOKEN")
 intents = discord.Intents.default()
 intents.messages = True
 bot = commands.Bot(command_prefix="!", intents=intents)
